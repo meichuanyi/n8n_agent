@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "figma": {
+      "command": "figma-mcp",
+      "args": ["--figma-api-key", "figd_GyoPqpgiQS2S3qRr5BNFY5VcixXi9MbTWwUmR81"],
+      "env": {}
+    }
+  }
+} 

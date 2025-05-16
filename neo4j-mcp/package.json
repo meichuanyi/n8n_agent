@@ -1,0 +1,19 @@
+{
+  "name": "neo4j-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Neo4j graph database integration with n8n workflows",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "neo4j-driver": "^5.15.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  }
+}

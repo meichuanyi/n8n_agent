@@ -1,0 +1,36 @@
+{
+  "name": "n8n-templates",
+  "version": "1.0.0",
+  "description": "n8n workflow vectorization and database integration project",
+  "main": "vectorize-workflows.js",
+  "scripts": {
+    "start": "node vectorize-workflows.js",
+    "parse": "node workflow-parser.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "vectorize-mcp": "node vectorize-with-mcp.js",
+    "supabase-mcp": "node supabase-with-mcp.js",
+    "supabase-vector": "node supabase-vector-loader.js",
+    "neo4j-loader": "node neo4j-loader.js",
+    "context7-docs": "node context7-docs.js",
+    "mcp-client": "node mcp-client-config.js",
+    "n8n-demo": "node n8n-mcp-client.js",
+    "import-all": "node import-to-n8n.js",
+    "import": "node import-to-n8n.js",
+    "validate": "node validate-workflow.js",
+    "db-dump": "node database-dump.js",
+    "file-dump": "node direct-file-dump.js"
+  },
+  "dependencies": {
+    "@qdrant/js-client-rest": "^1.7.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "dotenv": "^16.3.1",
+    "neo4j-driver": "^5.28.1",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0"
+  }
+}

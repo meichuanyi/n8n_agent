@@ -1,0 +1,21 @@
+Figma MCP Server Integration
+
+Use the global figma-mcp-unified server to interact with Figma API.
+
+USAGE:
+- Access Figma files, components, and design tokens through MCP
+- Extract design system variables
+- Analyze component structure
+- Generate tokens in various formats (JSON, CSS, SCSS)
+
+COMMANDS:
+- figma-mcp-unified --figma-api-key YOUR_API_KEY
+- figma-mcp-unified --port 3000 --figma-api-key YOUR_API_KEY
+- figma-mcp-unified --debug --figma-api-key YOUR_API_KEY
+
+TOOLS:
+- File tools: get-file, list-files, get-file-nodes, get-file-comments, etc.
+- Component tools: get-component, analyze-component-structure, get-component-sets, etc.
+- Variable tools: get-file-variables, extract-design-tokens, analyze-variable-usage, etc.
+
+You have access to a globally installed figma-mcp server with the API key already configured.

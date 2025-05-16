@@ -1,0 +1,18 @@
+Figma MCP Server Integration
+
+Use the global figma-mcp-unified server to interact with Figma API.
+
+USAGE:
+- Access Figma files, components, and design tokens through MCP
+- Extract design system variables
+- Analyze component structure
+- Generate tokens in various formats (JSON, CSS, SCSS)
+
+The Figma MCP server is configured in your project at .roo/mcp.json with the API key already set.
+
+TOOLS:
+- File tools: get-file, list-files, get-file-nodes, get-file-comments, etc.
+- Component tools: get-component, analyze-component-structure, get-component-sets, etc.
+- Variable tools: get-file-variables, extract-design-tokens, analyze-variable-usage, etc.
+
+When using Roocode, these tools will be available automatically for the AI to use.
