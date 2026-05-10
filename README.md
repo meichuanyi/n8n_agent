@@ -222,3 +222,177 @@ The workflow validator provides the following validation categories:
 2. Implement Supabase integration for structured metadata storage
 3. Create a web interface for browsing and searching workflows
 4. Add more advanced analytics and visualization tools
+## ❓ Frequently Asked Questions (FAQ)
+
+### General
+
+**Q: What is n8n_agent?**
+
+A: n8n_agent is a project for analyzing, categorizing, and storing n8n workflows across multiple database types:
+- **Vector Database (QDRANT)**: For semantic search and similarity matching
+- **Graph Database (Neo4j)**: For relationship mapping and ontological representation
+- **Relational Database (Supabase)**: For structured metadata storage
+
+**Q: What are MCP Integrations?**
+
+A: MCP (Model Context Protocol) integrations provide:
+- **n8n**: Import and manage workflows directly with n8n's API
+- **QDRANT**: Vector search and similarity matching for workflows
+- **Supabase**: Structured data storage for workflow metadata
+- **Workflow Validation**: Validate workflows against best practices
+
+### Setup & Installation
+
+**Q: How do I process workflows?**
+
+A: Run the workflow parser:
+```bash
+npm run parse
+# or
+node workflow-parser.js
+```
+This creates enriched workflow data in the `processed-workflows/` directory.
+
+**Q: How do I configure environment variables?**
+
+A: Copy the example environment file:
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+**Q: What environment variables are required?**
+
+A: Required variables:
+- `OPENAI_API_KEY`: For generating embeddings
+- `QDRANT_URL`: Qdrant server URL (default: `http://localhost:6333`)
+- `N8N_API_URL`: n8n API URL
+- `N8N_API_KEY`: n8n API key
+
+### MCP Integrations
+
+**Q: How do I use QDRANT MCP Integration?**
+
+A:
+```bash
+npm run vectorize-mcp
+```
+
+Available tools:
+- `vectorize_workflows`: Vectorize and store workflows in Qdrant
+- `search_similar_workflows`: Search by query with filters
+- `get_workflow_categories`: Get all workflow categories
+- `get_workflow_tags`: Get all workflow tags
+
+**Q: How do I use n8n MCP Integration?**
+
+A:
+```bash
+# List workflows
+npm run n8n-demo
+
+# Import all workflows to n8n
+npm run import-all
+
+# Import specific workflow
+npm run import <workflow-id>
+```
+
+Available tools:
+- `list_workflows`: Get all workflows from n8n
+- `get_workflow`: Get specific workflow by ID
+- `create_workflow`: Create new workflow
+- `update_workflow`: Update existing workflow
+- `delete_workflow`: Delete workflow
+- `import_workflow`: Import from file
+- `export_workflow`: Export to file
+
+**Q: How do I use Workflow Validation?**
+
+A:
+```bash
+# Validate workflow in n8n by ID
+npm run validate <workflow-id>
+
+# Validate local workflow file
+npm run validate -f <workflow-file.json>
+
+# Validate with high strictness
+npm run validate -s high <workflow-id>
+
+# Run specific validators
+npm run validate -v naming,security,errorHandling <workflow-id>
+```
+
+### Workflow Analysis
+
+**Q: What information is extracted from workflows?**
+
+A: The parser extracts:
+1. **Category**: Derived from filename prefix (e.g., "agent:", "workflow:", "tool:")
+2. **Name**: Extracted from filename
+3. **Description**: Generated from workflow content, node types, documentation
+4. **Tags**: Extracted from node types and services used
+5. **Complexity**: Analyzed based on node count, connections, unique node types
+
+**Q: What validation categories are available?**
+
+A: Five validation categories:
+1. **Naming**: Ensures workflows and nodes have descriptive names
+2. **Error Handling**: Checks for proper error handling nodes and patterns
+3. **Security**: Validates credential usage and security practices
+4. **Performance**: Identifies potential performance issues
+5. **Documentation**: Ensures workflows are properly documented
+
+### Database Integration
+
+**Q: What is the Vector Database (QDRANT) used for?**
+
+A: QDRANT provides:
+- Semantic search and similarity matching
+- OpenAI embeddings for vectorization
+- Search by query, filter by category, tags, complexity
+
+**Q: What is the Graph Database (Neo4j) used for?**
+
+A: Neo4j provides:
+- Relationship mapping and ontological representation
+- Query relationships between workflows, node types, categories
+- (Currently in development)
+
+**Q: What is the Relational Database (Supabase) used for?**
+
+A: Supabase provides:
+- Structured metadata storage
+- SQL queries for structured data analysis
+- (Currently in development)
+
+### Troubleshooting
+
+**Q: QDRANT connection fails?**
+
+A:
+- Check QDRANT_URL is correct
+- Verify Qdrant server is running on port 6333
+- Check firewall settings
+
+**Q: n8n API connection fails?**
+
+A:
+- Verify N8N_API_URL is correct
+- Check N8N_API_KEY is valid
+- Ensure n8n server is running
+
+**Q: Workflow validation fails?**
+
+A:
+- Check validator categories with `-v` flag
+- Use `-s high` for stricter validation
+- Review specific validator output
+
+**Q: Where can I get help?**
+
+A:
+- Check project documentation
+- Review MCP server logs
+- Submit GitHub Issues for bugs
